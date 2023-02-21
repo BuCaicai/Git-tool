@@ -3,7 +3,6 @@
 #
 import getopt
 import os
-import re
 import shutil
 import sys
 import tarfile
@@ -16,7 +15,7 @@ class submod:
 		self.newcom = ''
 		self.sub_old_cmt = ""
 		self.sub_new_cmt = ""
-		self.path = "/home/liuzd/test/"
+		self.path = ""
 		self.sub_path = ""
 		self.tarpath = ""
 		self.module = ""
@@ -119,7 +118,7 @@ class submod:
 		self.sub_repo(self.sub_path)
 
 	def main(self, argv):
-		opts, args = getopt.getopt(argv, '-h', ['help', 'oldcom=', 'newcom=', 'module='])
+		opts, args = getopt.getopt(argv, '-h', ['help', 'oldcom=', 'newcom=', 'module=', 'outpath='])
 		for opt, arg in opts:
 			if opt in ['-h', '--help']:
 				pass
@@ -129,6 +128,8 @@ class submod:
 				self.newcom = arg
 			elif opt == '--module':
 				self.module = arg
+			elif opt == '--tarpath':
+				self.path = arg
 		self.process()
 
 

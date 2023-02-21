@@ -3,12 +3,14 @@
 ***
 ## Usage
 ```python archive.py [options | options[args]]```
+```python archive.py --module demo --oldcom aaa*** --newcom bbb*** --output /data/demo/ ```
 
-|  option  | args |      desc       |
-|:--------:|:----:|:---------------:|
-| ```--module``` |      | submodule name  |
-| ```--oldcom``` |      | repo old commit |
-| ```--newcom``` |      | repo new commit |
+|     option     | args |         desc         |
+|:--------------:|:----:|:--------------------:|
+| ```--module``` |      |    submodule name    |
+| ```--oldcom``` |      |   repo old commit    |
+| ```--newcom``` |      |   repo new commit    |
+| ```--output``` |      | tar file output path |
 ***
 ## Support
 |            | old commmit | new commmit |
