@@ -60,7 +60,7 @@ class submod:
 		print("----------------------------------------------------------------------")
 		print("[*] main file archive")
 		tmpath = "latest_%s" % self.newcom[0:8]
-		self.tarpath = os.path.join(self.path + tmpath)
+		self.tarpath = os.path.join(self.path, tmpath)
 		print("[tarpath] ", self.tarpath)
 		if os.path.exists(self.tarpath): shutil.rmtree(self.tarpath)
 		tarname = self.tarpath + '.tar.gz'
@@ -80,7 +80,7 @@ class submod:
 			print("[*] submodule no change")
 		elif self.sub_old_cmt != "0" * 40 and self.sub_new_cmt == "0" * 40:
 			print("[*] submodule delete")
-		elif self.sub_old_cmt == "0" * 40 and self.sub_new_cmt != "0" * 40:
+		else:
 			# old, new ["0*40 aaa***", "bbb*** 0*40", "ccc*** ddd***"]
 			print("----------------------------------------------------------------------")
 			print("[*] Submodule %s %s..%s" % (self.module, self.sub_old_cmt, self.sub_new_cmt))
@@ -118,7 +118,7 @@ class submod:
 		self.sub_repo(self.sub_path)
 
 	def main(self, argv):
-		opts, args = getopt.getopt(argv, '-h', ['help', 'oldcom=', 'newcom=', 'module=', 'outpath='])
+		opts, args = getopt.getopt(argv, '-h', ['help', 'oldcom=', 'newcom=', 'module=', 'tarpath='])
 		for opt, arg in opts:
 			if opt in ['-h', '--help']:
 				pass
